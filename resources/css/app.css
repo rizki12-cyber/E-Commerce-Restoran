@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+    /* Warna Aksen */
+    --dk-primary: #E36A2E; 
+    --dk-secondary: #F4A261;
+    
+    /* Warna Teks */
+    --dk-text: #1A1A1A; 
+    --dk-muted: #6B6B6B;
+    
+    /* Warna Border & Background */
+    --dk-border: #E5D9CE;
+    --dk-surface: #FFFFFF;
+    
+    /* Font */
+    --dk-font-heading: 'Playfair Display', serif;
+    --dk-font-body: 'Inter', sans-serif;
+}
+
+body {
+    /* GRADIENT BACKGROUND BEIGE PREMIUM */
+    background: linear-gradient(135deg, #F8F1EB 0%, #EFE2D6 50%, #E5D3C3 100%);
+    background-attachment: fixed;
+    color: var(--dk-text);
+    font-family: var(--dk-font-body);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
+    font-family: var(--dk-font-heading);
+    font-weight: 700;
+    color: var(--dk-text);
+    letter-spacing: -0.5px;
+}
+
+/* --- TOMBOL MODERN (KAPSUL) --- */
+.btn-primary {
+    background-color: var(--dk-text) !important;
+    border-color: var(--dk-text) !important;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 12px 32px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.btn-primary:hover {
+    background-color: var(--dk-primary) !important;
+    border-color: var(--dk-primary) !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--dk-text) !important;
+    border-color: var(--dk-text) !important;
+    border-radius: 50px;
+    padding: 10px 28px;
+    font-weight: 500;
+}
+.btn-outline-primary:hover {
+    background-color: var(--dk-text) !important;
+    color: #fff !important;
+}
+
+/* --- NAVBAR & AUTO-HIDE SCROLL EFFECT --- */
+.navbar {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: transform 0.4s ease-in-out, background-color 0.4s ease, backdrop-filter 0.4s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar.scrolled {
+    background-color: rgba(243, 233, 224, 0.85) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar.hide-nav {
+    transform: translateY(-100%);
+}
+
+.navbar-brand {
+    font-family: var(--dk-font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dk-text) !important;
+}
+
+.nav-link {
+    color: var(--dk-muted) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.nav-link.active, .nav-link:hover {
+    color: var(--dk-text) !important;
+}
+
+/* --- DROPDOWN PROFIL MEWAH --- */
+.dropdown-menu {
+    border-radius: 16px !important;
+    padding: 10px !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    margin-top: 15px !important;
+    animation: fadeInDown 0.3s ease;
+    min-width: 250px;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header-profile {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 8px;
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: var(--dk-text);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dropdown-item:hover {
+    background-color: var(--dk-bg);
+    color: var(--dk-primary) !important;
+    transform: translateX(5px);
+}
+
+.dropdown-item i {
+    font-size: 1.2rem;
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: #FFF0F0;
+    color: #DC5252 !important;
+}
+
+/* --- KARTU & KATEGORI HIDUP --- */
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(227, 106, 46, 0.05), rgba(227, 106, 46, 0.15));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-icon-wrapper {
+    transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+}
+
+.category-card:hover .category-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(--dk-primary) !important;
+    color: white !important;
+}
+
+/* --- HERO COLLAGE STYLE --- */
+.hero-collage {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collage-main {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    border: 8px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.collage-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collage-top {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 1;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+.collage-bottom {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 1;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+.collage-top img, .collage-bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-btn {
+    transition: transform 0.3s ease;
+}
+
+.order-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+
+.gallery-img-wrapper {
+    height: 100%;
+    min-height: 250px;
+}
+.gallery-img-wrapper img {
+    transition: transform 0.5s ease;
+}
+.gallery-img-wrapper:hover img {
+    transform: scale(1.05);
+}
+/* --- CUSTOM SIDEBAR STYLES --- */
+.custom-sidebar {
+    width: 270px; 
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.95); 
+    border-right: 1px solid var(--dk-border);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.sidebar-scroll {
+    overflow-y: auto;
+    padding-right: 5px;
+    
+    /* MENYEMBUNYIKAN SCROLLBAR */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+.sidebar-scroll::-webkit-scrollbar {
+    display: none;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+
+.sidebar-heading {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555 !important; 
+    text-decoration: none !important; 
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    margin-bottom: 2px;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: 12px;
+    color: #888;
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(0,0,0,0.05); 
+    color: var(--dk-text) !important;
+    transform: translateX(3px);
+}
+ 
+.sidebar-link:hover i {
+    color: var(--dk-primary);
+}
+
+.sidebar-link.active {
+    background-color: var(--dk-text);
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-link.active i {
+    color: #fff;
+}
+
+.sidebar-submenu .sidebar-link {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+    color: #777 !important;
+}
+ 
+.sidebar-submenu .sidebar-link:hover {
+    background-color: transparent;
+    color: var(--dk-primary) !important;
+}
+
+.sidebar-link .badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    font-weight: 700;
+}
+/* --- ANIMASI MARQUEE REVIEWS --- */
+.review-marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    /* Memberikan efek pudar di ujung kiri dan kanan */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.review-marquee-content {
+    display: flex; /* Ini yang membuat ulasan menyamping, bukan menumpuk */
+    flex-shrink: 0;
+    align-items: stretch;
+    gap: 2rem;
+    min-width: 100%;
+    padding: 1rem 0;
+    animation: scroll-marquee 40s linear infinite;
+}
+
+/* Berhenti bergerak saat kursor diarahkan ke ulasan 
+.review-marquee-wrapper:hover .review-marquee-content {
+    animation-play-state: paused;
+} */
+
+@keyframes scroll-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 1rem)); } 
+}
+
+/* Desain Kartu Review (Glassmorphism & Editorial) */
+.review-card {
+    width: 350px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 576px) {
+    .review-card {
+        width: 280px;
+        padding: 1.5rem;
+    }
+}
+
+/* --- ANIMASI BINTANG MELAYANG --- */
+.animated-stars i {
+    display: inline-block;
+    animation: float-stars 2s ease-in-out infinite;
+}
+
+/* Memberikan delay agar bintang bergerak bergantian seperti gelombang */
+.animated-stars i:nth-child(1) { animation-delay: 0.0s; }
+.animated-stars i:nth-child(2) { animation-delay: 0.15s; }
+.animated-stars i:nth-child(3) { animation-delay: 0.3s; }
+.animated-stars i:nth-child(4) { animation-delay: 0.45s; }
+.animated-stars i:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes float-stars {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
